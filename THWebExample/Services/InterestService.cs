@@ -9,7 +9,12 @@ namespace THWebExample.Services
         public decimal Value { get; set; }
     }
 
-    public class InterestService
+    public interface IInterestService
+    {
+        public List<Interest> GetRepoInterestValues();
+    }
+
+    public class InterestService : IInterestService
     {
         public List<Interest> GetRepoInterestValues()
         {

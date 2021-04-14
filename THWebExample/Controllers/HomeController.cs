@@ -14,17 +14,18 @@ namespace THWebExample.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IInterestService _interestService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IInterestService interestService)
         {
             _logger = logger;
+            _interestService = interestService;
         }
 
         public IActionResult Index()
         {
             var model = new HomeIndexViewModel();
-            var service = new InterestService();
-            model.Items = service.GetRepoInterestValues().Select(e => new HomeIndexViewModel.InterestItem
+            model.Items = _interestService.GetRepoInterestValues().Select(e => new HomeIndexViewModel.InterestItem
             {
                 Value = e.Value,
                 Datum = e.Datum
