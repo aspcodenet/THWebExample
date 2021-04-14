@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,6 +10,15 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="System.ServiceModel.Duplex" Version="4.8.1" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.8.1" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.8.1" />
+    <PackageReference Include="System.ServiceModel.Security" Version="4.8.1" />
+    <PackageReference Include="System.ServiceModel.Web" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
   </ItemGroup>
 
 </Project>

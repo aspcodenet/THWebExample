@@ -20,12 +20,27 @@ namespace THWebExample.Controllers
         public HomeController(ILogger<HomeController> logger, IInterestService interestService, IKrisInfoService krisInfoService)
         {
             _logger = logger;
+
+            try
+            {
+            
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex,"ngt gick fel");
+                logger.LogCritical("dasdasads" );
+            }
+
             _interestService = interestService;
             _krisInfoService = krisInfoService;
         }
 
         public IActionResult Index()
         {
+
+
+
+
             var list = _krisInfoService.GetAllKrisInformation();
 
 
