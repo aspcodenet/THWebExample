@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Net.Http;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using THWebExample.Services;
 
@@ -21,15 +22,23 @@ namespace THWebExample.Services
     }
 
 
+    public class KrisInfoConfig
+    {
+        public string Url { get; set; }
+        public int NrToShow { get; set; }
+    }
+
+
+
     public class KrisInfoService : IKrisInfoService
     {
         private string url;
         private int nrToShow;
 
-        public KrisInfoService(IConfiguration configuration)
+        public KrisInfoService(IOptions<KrisInfoConfig> config)
         {
-            url = configuration.GetValue<string>("KrisInfoConfig:Url");
-            nrToShow = configuration.GetValue<int>("KrisInfoConfig:NrToShow");
+            url = config.Value.Url;
+            nrToShow = config.Value.NrToShow;
         }
 
         public class Test

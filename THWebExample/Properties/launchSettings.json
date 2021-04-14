@@ -15,6 +15,16 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
+
+    "IIS ExpressTest": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Test"
+      }
+    },
+
+
     "THWebExample": {
       "commandName": "Project",
       "launchBrowser": true,

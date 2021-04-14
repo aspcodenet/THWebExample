@@ -14,8 +14,11 @@ namespace THWebExample.Services
         public List<Interest> GetRepoInterestValues();
     }
 
+
     public class InterestService : IInterestService
     {
+        private string url;
+
         public List<Interest> GetRepoInterestValues()
         {
             return new List<Interest>
