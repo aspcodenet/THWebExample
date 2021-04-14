@@ -15,15 +15,20 @@ namespace THWebExample.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IInterestService _interestService;
+        private readonly IKrisInfoService _krisInfoService;
 
-        public HomeController(ILogger<HomeController> logger, IInterestService interestService)
+        public HomeController(ILogger<HomeController> logger, IInterestService interestService, IKrisInfoService krisInfoService)
         {
             _logger = logger;
             _interestService = interestService;
+            _krisInfoService = krisInfoService;
         }
 
         public IActionResult Index()
         {
+            var list = _krisInfoService.GetAllKrisInformation();
+
+
             var model = new HomeIndexViewModel();
             model.Items = _interestService.GetRepoInterestValues().Select(e => new HomeIndexViewModel.InterestItem
             {

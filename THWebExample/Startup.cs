@@ -25,6 +25,7 @@ namespace THWebExample
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IInterestService, InterestService>();
+            services.AddTransient<IKrisInfoService, KrisInfoService>();
             services.AddControllersWithViews();
         }
 
