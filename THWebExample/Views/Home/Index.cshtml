@@ -1,0 +1,16 @@
+﻿@model THWebExample.ViewModels.HomeIndexViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<table class="table">
+    @foreach (var iitem in Model.Items)
+    {
+    <tr>
+        <td>@iitem.Datum.ToString("yyyy-MM-dd")</td>
+        <td>@iitem.Value</td>
+    </tr>
+    }
+
+</table>
+
