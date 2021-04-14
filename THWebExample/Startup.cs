@@ -25,6 +25,8 @@ namespace THWebExample
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<KrisInfoConfig>(Configuration.GetSection("KrisInfoConfig"));
+            services.Configure<SweaWebServiceConfig>(Configuration.GetSection("SweaWebServiceConfig"));
+
             services.AddTransient<IInterestService, InterestService>();
             services.AddTransient<IKrisInfoService, KrisInfoService>();
             services.AddControllersWithViews();

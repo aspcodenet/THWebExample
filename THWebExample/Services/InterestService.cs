@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.Extensions.Options;
 
 namespace THWebExample.Services
 {
@@ -14,10 +15,18 @@ namespace THWebExample.Services
         public List<Interest> GetRepoInterestValues();
     }
 
+    public class SweaWebServiceConfig
+    {
+        public string Url { get; set; }
+    }
 
     public class InterestService : IInterestService
     {
         private string url;
+        public InterestService(IOptions<SweaWebServiceConfig> config)
+        {
+            url = config.Value.Url;
+        }
 
         public List<Interest> GetRepoInterestValues()
         {
